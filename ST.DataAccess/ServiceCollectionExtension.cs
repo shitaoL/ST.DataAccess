@@ -16,11 +16,11 @@ namespace ST.DataAccess
         {
             services.AddDbContext<DbContext, BaseDbContext>(options);
 
+            services.AddScoped(typeof(IRepository<>), typeof(EfCoreRepository<>));
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-            services.AutoDI(typeof(IRepository<>));
-
-            services.AddScoped(typeof(IRepository<>), typeof(EfCoreRepository<>));
+            services.AutoDI(typeof(IRepository<>));            
 
             return services;
         }

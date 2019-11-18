@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <Authors>Shitao</Authors>
+    <PackageProjectUrl>https://github.com/shitaoL/ST.DataAccess.git</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/shitaoL/ST.CaptchaLib.git</RepositoryUrl>
+    <Company>NewAce</Company>
+    <Description>Database access library, support ef core and dapper.</Description>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
