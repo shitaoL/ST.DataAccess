@@ -29,7 +29,7 @@ namespace ST.DataAccess.Test
         }
 
 
-        [Fact,]
+        [Fact]
         public Test Insert()
         {
             var test = new Test
