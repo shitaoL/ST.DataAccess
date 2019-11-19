@@ -10,9 +10,9 @@ namespace AspNetCoreSample
     {
         public MapperProfile()
         {
-            CreateMap<Test, TestDto>().ReverseMap(); //ReverseMap表示Test和TestDto可以互转,不加ReverseMap()只能从Test转到TestDto 
-            CreateMap(typeof(PagedList<>), typeof(PagedListDto<>));
-            //CreateMap<Blog, BlogDto>().ReverseMap();
+            CreateMap<Test, TestDto>().ReverseMap();
+            CreateMap<CreateTestInput, Test>();
+            CreateMap<UpdateTestInput, Test>();
         }
     }
 }

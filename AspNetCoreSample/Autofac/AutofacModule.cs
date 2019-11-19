@@ -15,6 +15,8 @@ namespace AspNetCoreSample
         {
             //仓储层和IUnitOfWork已经在ST.DataAccess库中自动注入,仓储层只要继承IRepository接口都会自动注入,例如:ITestRepository : IRepository<Test>
 
+            builder.RegisterType<NullAsyncQueryableExecuter>().As<IAsyncQueryableExecuter>().InstancePerDependency();
+
             //以程序集方式注入AspNetCoreSample下的所有的以Service结尾的类
             builder.RegisterAssemblyTypes(GetAssemblyByName("AspNetCoreSample")).Where(x => x.Name.EndsWith("Service")).AsImplementedInterfaces().InstancePerDependency();
 
@@ -22,6 +24,7 @@ namespace AspNetCoreSample
             //builder.RegisterType<BaseService>().As<IBaseService>().InstancePerDependency();
             //builder.RegisterType<TestService>().As<ITestService>().InstancePerDependency();
             //...
+
 
         }
 

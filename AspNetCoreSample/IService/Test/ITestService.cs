@@ -10,6 +10,10 @@ namespace AspNetCoreSample
     {
         TestDto GetById(string id);
         Task<TestDto> GetByIdAsync(string id);
-        Task<PagedListDto<Test>> GetPagedList();
+        PagedResultDto<TestDto> GetPagedList(int pageIndex, int pageSize);
+        Task<PagedResultDto<TestDto>> GetPagedListAsync(int pageIndex, int pageSize);
+        Task<TestDto> Create(CreateTestInput input);
+        Task<TestDto> Update(UpdateTestInput input);
+
     }
 }

@@ -9,7 +9,7 @@ using ST.DataAccess;
 namespace AspNetCoreSample.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]/[action]")]
     public class TestsController : ControllerBase
     {
         private readonly ITestService _testService;
@@ -20,12 +20,26 @@ namespace AspNetCoreSample.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public IActionResult GetAll()
         {
-            var tests = await _testService.GetPagedList();
+            var tests = _testService.GetPagedList(1, 10);
             return Ok(tests);
         }
 
 
+        [HttpPost]
+        public IActionResult Create(CreateTestInput input)
+        {
+            var dto = _testService.Create(input);
+            return Ok(dto);
+
+        }
+
+        [HttpPost]
+        public IActionResult Update(UpdateTestInput input)
+        {
+            var dto = _testService.Update(input);
+            return Ok(dto);
+        }
     }
 }

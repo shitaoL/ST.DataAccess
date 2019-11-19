@@ -51,19 +51,7 @@ namespace ST.DataAccess.Test
             var test = _testRepository.GetById(newTest.Id);
             Assert.True(test != null);
         }
-        [Fact]
-        public void PagedList()
-        {
-            var tests = _testRepository.GetAll().ToPagedList(1, 10);
-            Assert.True(tests != null);
-        }
-        [Fact]
-        public async Task PagedListAsync()
-        {
-            var tests = await _testRepository.GetAll().ToPagedListAsync(1, 10);
-            Assert.True(tests != null);
-        }
-
+       
 
         [Fact]
         public List<Test> Inserts()
