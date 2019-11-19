@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace AspNetCoreSample
 {
-    public class ResultDto
+    public class ResponseDto
     {
         public StatusCode StatusCode { get; set; }
 
