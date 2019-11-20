@@ -13,14 +13,8 @@ namespace ST.DataAccess
     {
         public static IServiceCollection AddDataAccess(this IServiceCollection services,
             Action<DbContextOptionsBuilder> options)
-        {
-            services.AddDbContext<DbContext, BaseDbContext>(options);
-
-            services.AddScoped(typeof(IRepository<>), typeof(EfCoreRepository<>));
-
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-
-            services.AutoDI(typeof(IRepository<>));            
+        {         
+            services.AddDataAccess<BaseDbContext>(options);
 
             return services;
         }
@@ -35,7 +29,6 @@ namespace ST.DataAccess
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AutoDI(typeof(IRepository<>));
-
 
             return services;
         }
